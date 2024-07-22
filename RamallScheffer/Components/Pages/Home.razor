@@ -1,0 +1,51 @@
+﻿@page "/"
+@using MudBlazor
+@inject NavigationManager Navigation
+
+<PageTitle>Home</PageTitle>
+
+<MudDialogProvider />
+@foreach (var funcionariosAgrupados in setoresAgrupados)
+{  
+<MudCard>
+  <MudCardContent>
+      <MudText Typo="Typo.h6">@funcionariosAgrupados.Setor</MudText>
+    <MudTable Items="@funcionariosAgrupados.FuncionariosAgrupados">
+      <HeaderContent>
+        <MudTh>Ramal</MudTh>
+        <MudTh>Funcionários</MudTh>
+      </HeaderContent>
+      <RowTemplate>
+        <MudTr>
+          <MudTd>@context.Ramal</MudTd>
+          <MudTd>@context.Funcionarios</MudTd>
+        </MudTr>
+      </RowTemplate>
+    </MudTable>
+  </MudCardContent>
+</MudCard>
+}
+
+@code {
+  private List<Ramall> ramais = new List<Ramall>();
+  private List<(string Setor, List<(string Ramal, string Funcionarios)> FuncionariosAgrupados)> setoresAgrupados = new List<(string Setor, List<(string Ramal, string Funcionarios)> FuncionariosAgrupados)>();
+
+  protected override async Task OnInitializedAsync()
+  {
+    ramais = await _context.Ramais.ToListAsync();
+
+    setoresAgrupados = ramais
+        .GroupBy(r => r.Setor)
+        .Select(setorGroup => (
+            Setor: setorGroup.Key,
+            FuncionariosAgrupados: setorGroup
+                .GroupBy(r => r.NumeroRamall)
+                .Select(ramalGroup => (
+                    Ramal: ramalGroup.Key,
+                    Funcionarios: string.Join("/", ramalGroup.Select(f => f.Funcionarios))
+                ))
+                .ToList()
+        ))
+        .ToList();
+  }
+}

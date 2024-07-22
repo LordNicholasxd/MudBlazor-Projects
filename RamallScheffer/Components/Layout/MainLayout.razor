@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Sinalizador</PageTitle>
+
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+  <MudAppBar Style="@($"background:{Colors.Gray.Lighten5};")" Fixed="false">
+    <img src="Imagens/Svgs/SchefferLogo.svg" class="logoScheffer" alt="SchefferLogo" />
+    <MudSpacer />
+    <MudText Class="titulo" Typo="Typo.h3">Ramais</MudText>
+  </MudAppBar>
+  <MudMainContent>
+    @Body
+  </MudMainContent>
+</MudLayout>
+
+
+
