@@ -3,59 +3,30 @@
 @inject NavigationManager Navigation
 <PageTitle>Home</PageTitle>
 
-
-<MudDialogProvider />
 <div class="fundoImagem"></div>
-<style>
-  .fundoImagem {
-    position: fixed; /* Fica fixo na tela */
-    top: 0;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: url('Imagens/Svgs/SchefferIcone.svg') no-repeat left center;
-    /* background-size: cover; */
-    background-size: 60% auto;
-    opacity: 0.1; /* Ajuste a opacidade conforme necessário */
-    z-index: -1; /* Garante que a imagem está atrás do conteúdo */
-  }
-  
-}
-</style>
-    
-<div class="conteudo">
+
+<MudGrid Class="conteudo">
   @foreach (var funcionariosAgrupados in setoresAgrupados)
   {
-    <MudCard Class="mud-card">
-      <MudCardHeader Class="mud-card-header">
-        <MudText Typo="Typo.h6" Class="mud-text-setor">@funcionariosAgrupados.Setor</MudText>
-      </MudCardHeader>
-      <MudCardContent Class="mud-card-content">
-        @foreach (var funcionario in funcionariosAgrupados.FuncionariosAgrupados)
-        {
-          <MudText Typo="Typo.body2" Class="mud-text">
-            <span class="mud-text-ramal">@funcionario.Ramal - </span>
-            
-            <span class="mud-text-funcionarios">@funcionario.Funcionarios</span>
-          </MudText>
-        }
-      </MudCardContent>
-    </MudCard>
+    <MudItem xs="12" sm="6" md="4" lg="3">
+      <MudCard Class="mud-card">
+        <MudCardHeader Class="mud-card-header">
+          <MudText Typo="Typo.h6" Class="mud-text-setor">@funcionariosAgrupados.Setor</MudText>
+        </MudCardHeader>
+        <MudCardContent Class="mud-card-content">
+          @foreach (var funcionario in funcionariosAgrupados.FuncionariosAgrupados)
+          {
+            <MudText Typo="Typo.body2" Class="mud-text">
+              <span class="mud-text-ramal">@funcionario.Ramal - </span>
+
+              <span class="mud-text-funcionarios">@funcionario.Funcionarios</span>
+            </MudText>
+          }
+        </MudCardContent>
+      </MudCard>
+    </MudItem>
   }
-</div>
-
-
-
-
-
-@* <MudTable Items="@funcionariosAgrupados.FuncionariosAgrupados">
-      <RowTemplate>
-        <MudTr>
-          <MudTd>@context.Ramal</MudTd>
-          <MudTd>@context.Funcionarios</MudTd>
-        </MudTr>
-      </RowTemplate>
-    </MudTable> *@
+</MudGrid>
 
 @code {
   private List<Ramall> ramais = new List<Ramall>();
