@@ -1,6 +1,24 @@
 ﻿:root {
   --corCliente: #352727; /* Define a variável para a cor de fundo */
 }
+
+.mud-typography-root,
+.mud-typography-body1,
+.mud-typography-body2,
+.mud-typography-caption,
+.mud-typography-button,
+.mud-typography-overline,
+.mud-typography-subtitle1,
+.mud-typography-subtitle2,
+.mud-typography-h1,
+.mud-typography-h2,
+.mud-typography-h3,
+.mud-typography-h4,
+.mud-typography-h5,
+.mud-typography-h6 {
+  font-family: 'Saira', sans-serif;
+}
+
 /*----------------------------------------------------------------------------------------*/
 /* Header */
 /*----------------------------------------------------------------------------------------*/
@@ -8,9 +26,132 @@
   /*----------------------------------------------------------------------------------------*/
     .logoScheffer {
       max-width: 30%;
+      padding:0;
+      margin:0;
     }
 .titulo {
   color: black;
+  font-weight:600;
+  letter-spacing:2px;
 }
+@media (max-width: 767px) {
+  .fundoImagem {
+    background-size: 80% !important;
+  }
+}
+
+@media (min-width:768px) and (max-width: 1024px) {
+  .conteudo {
+    padding: 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre os cards */
+    justify-content: space-between;
+  }
+  .fundoImagem {
+    background-size: 80% !important;
+  }
+  .mud-card {
+    min-width: calc(33% - 30px); /* Largura fixa para os cards */
+    margin-bottom: 12px; /* Espaçamento inferior entre os cards */
+    border: 1px solid #000; /* Adiciona uma borda ao redor dos cards */
+    border-radius: 10px;
+    background: #FFFFFF10;
+    backdrop-filter: blur(10px);
+    padding: 0 10px;
+    /*border-top-style: double;*/
+  }
+}
+
+
   /*----------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------*/
+/* Define a camada de fundo com a imagem e opacidade */
+
+.mud-toolbar {
+  padding: 0;
+}
+@media (min-width:1024px){
+  .conteudo {
+    padding: 10px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaçamento entre os cards */
+    justify-content: space-between; /* Centraliza os cards horizontalmente */
+  }
+
+  .mud-card {
+    min-width: calc(25% - 20px); /* Largura fixa para os cards */
+    margin-bottom: 12px; /* Espaçamento inferior entre os cards */
+    border: 1px solid #000; /* Adiciona uma borda ao redor dos cards */
+    border-radius: 10px;
+    background: #FFFFFF10;
+    backdrop-filter: blur(10px);
+    padding: 0 10px;
+    /*border-top-style: double;*/
+  }
+}
+
+  .mud-text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mud-card-header {
+    /*background-color: #f5f5f5;*/ /* Cor de fundo para o header do card */
+    padding: 8px; /* Padding para o header */
+    /*flex-direction: column;*/
+    justify-content: start;
+    text-align: start;
+  }
+
+  .mud-text-setor {
+    color: #FF5733; /* Cor personalizada para o nome do setor */
+    text-align: center; /* Centraliza o texto do setor */
+    font-weight: 600; /* Negrito para o texto do setor */
+    font-size: 1vw;
+    margin-top: -23px;
+    background-image: linear-gradient(#FFFFFF00 45%, #ffffff 45%, #ffffff 70%, #FFFFFF00 70%);
+    padding: 0 10px;
+    margin-left: -10px;
+    border-radius: 8px 8px 0 0;
+    /*backdrop-filter: blur(10px);*/
+  }
+
+  @media (max-width: 768px) {
+    .mud-text-setor {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .mud-text-setor {
+      font-size: 11px;
+    }
+  }
+
+
+  .mud-card-content {
+    padding: 8px 8px 20px 8px; /* Padding para o conteúdo do card */
+    text-align: left; /* Centraliza o conteúdo do card */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .mud-text-ramal {
+    font-weight: bold; /* Texto em negrito para o ramal */
+    /* display: block;*/ /* Display block para que cada ramal fique em uma linha separada */
+  }
+
+  .mud-text-funcionarios {
+    font-style: italic; /* Texto em itálico para os funcionários */
+    width: 80%;
+  }
+
+  /* Adiciona espaçamento para o conteúdo e define fundo transparente */
+  /*.conteudo {
+  position: relative;
+  z-index: 1;*/ /* Garante que o conteúdo está sobre a imagem */
+  /*background-color: transparent;*/ /* Define fundo transparente */
+  /*}*/
