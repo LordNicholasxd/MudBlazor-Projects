@@ -46,8 +46,10 @@
                     Ramal: ramalGroup.Key,
                     Funcionarios: string.Join(", ", ramalGroup.Select(f => f.Funcionarios))
                 ))
+                .OrderBy(r => r.Funcionarios)
                 .ToList()
         ))
+        .OrderBy(r => r.Setor)
         .ToList();
   }
 }

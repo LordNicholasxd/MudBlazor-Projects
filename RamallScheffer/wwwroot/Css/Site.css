@@ -110,7 +110,7 @@
   color: #FF5733; /* Cor personalizada para o nome do setor */
   text-align: center; /* Centraliza o texto do setor */
   font-weight: 600; /* Negrito para o texto do setor */
-  font-size: 19px;
+  font-size: 18px;
   margin-top: -23px;
   background-image: linear-gradient(#FFFFFF00 45%, #ffffff 45%, #ffffff 70%, #FFFFFF00 70%);
   padding: 0 10px;
