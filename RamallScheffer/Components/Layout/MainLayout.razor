@@ -8,12 +8,12 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-  <MudAppBar Style="background:#FFFFFF00; display:flex; padding:10px 40px; justify-content:space-between; box-shadow:none;" Fixed="false">
-    <img src="Imagens/Svgs/SchefferLogo.svg" class="logoScheffer" alt="SchefferLogo" />
+  <MudAppBar Style="background:#FFFFFF00; display:flex; box-shadow:none; padding:10px 40px;" Fixed="false">
+    <MudImage Src="Imagens/Svgs/SchefferLogo.svg" Alt="Logo Scheffer" Height="40"/>
     <MudSpacer />
     <MudText Class="titulo" Typo="Typo.h4">RAMAIS</MudText>
   </MudAppBar>
-  <MudMainContent>
+  <MudMainContent Class="pt-0">
     @Body
   </MudMainContent>
 </MudLayout>
